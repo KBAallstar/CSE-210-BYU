@@ -21,7 +21,7 @@ Define Class Attributes
 
 Exceeding Requirements:
 1. Added confirmation when saving and loading.
-2. Added 16 extra prompts to PromptGenerator.
+2. Added 16 extra prompts to PromptGenerator. (Total of 21 prompts)
 */
 
 class Program
