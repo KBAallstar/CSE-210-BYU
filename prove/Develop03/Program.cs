@@ -8,8 +8,9 @@ class Program
     {
         string userInput = "";
 
-        Reference reference = new Reference("John", 3, 16);
-        Scripture scripture = new Scripture(reference, "For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life.");
+        // EXCEEDING REQS: get random scripture from library
+        Reference reference = new Reference();
+        Scripture scripture = new Scripture(reference, reference.GetVerseText());
 
         while (userInput != "quit")
         {
@@ -25,6 +26,7 @@ class Program
             Console.WriteLine("Press enter to continue or type 'quit' to finish:");
             userInput = Console.ReadLine();
 
+            // check if the scripture is completely hidden
             if (scripture.IsCompletelyHidden() == true)
             {
                 break;
