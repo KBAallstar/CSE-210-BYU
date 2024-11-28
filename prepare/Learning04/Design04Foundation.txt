@@ -1,0 +1,109 @@
+YOUTUBE ABSTRACTION
+
+Your program should have a class for a Video that has the responsibility to
+track the title, author, and length (in seconds) of the video. Each video also
+has responsibility to store a list of comments, and should have a method to return
+the number of comments. A comment should be defined by the Comment class which has
+the responsibility for tracking both the name of the person who made the comment
+and the text of the comment.
+
+Once you have the classes in place, write a program that creates 3-4 videos, sets
+the appropriate values, and for each one add a list of 3-4 comments (with the
+commenter's name and text). Put each of these videos in a list.
+
+Then, have your program iterate through the list of videos and for each one, display
+the title, author, length, number of comments (from the method) and then list out all
+of the comments for that video. Repeat this display for each video in the list.
+
+In the course repository, use Foundation1 project and write your program there.
+
+Because this project does not have any user interaction, for submission, you will
+include a screenshot of your program execution in your GitHub repository alongside
+the corresponding code. Save the image to the Foundation1 folder.
+
+YOUTUBE CLASS DIAGRAM
+
+Class: Video
+_title : string 
+_author : string 
+_length : string 
+_commentsList : List<Comments>
+
+ReturnCommentsCount(_commentsList) : int 
+
+Class: Comments
+_commentorName : string 
+_commentText : string 
+
+DisplayFullComment(commentorName, commentText) : string 
+
+---
+
+ONLINE ORDERING ENCAPSULATION
+
+Assume you have been hired to help a company with their product ordering system.
+They sell many products online to a variety of customers and need to produce packing
+labels, shipping labels, and compute final prices for billing.
+
+Make sure that all member variables are private and getters, setters,
+and constructors are created as needed.
+
+Once you have created these classes, write a program that creates at
+least two orders with a 2-3 products each. Call the methods to get the
+packing label, the shipping label, and the total price of the order, and
+display the results of these methods. Your Program.cs file should create
+the required objects, set their values, and display them as specified,
+without any user interaction.
+
+Use Foundation2 project in the foundation folder.
+
+Because this project does not have any user interaction, for submission, you will
+include a screenshot of your program execution in your GitHub repository alongside
+the corresponding code. Save the image to the Foundation2 folder.
+
+ONLINE ORDERING DIAGRAM 
+
+Class: Product 
+_name : string 
+_id : string 
+_itemPrice : float 
+_totalPrice : float 
+_quantity : int 
+
+GetName() : string _name
+SetName() 
+GetPrice() : float _itemPrice 
+SetPrice()
+GetQuantity() : int _quantity
+SetQuantity() 
+GetID() : string _id 
+SetID() 
+CalculateTotalPrice() : float - _price*_quantity 
+
+Class: Customer 
+_name : string
+_address : Address 
+
+CustomerInUSA() : bool - Address.AddressInUSA() 
+
+Class: Address 
+_street : string
+_city : string 
+_stateProvince : string
+_country : string
+
+AddressInUSA(_country) : bool - Checks if Address._country == USA
+DisplayFullAddress() : string - (with newline characters where appropriate \n) street, city, state, country 
+
+Class: Order 
+_listProducts : List<Product> 
+_customer : List<Customer> 
+_totalPrice : int 
+_shippingCost : int 
+_packingLabel : string (name and product id) 
+_shippingLabel : string (name and address of the customer) 
+
+CalculateShippingCost() : int - if Customer.CustomerInUSA == True $5. Else $35.
+CalculateTotalPrice() : int - Sum of each product plus one-time shipping cost.
+GetPackingLabel() : string - Pruduct._name + Product._id 
+GetShippingLabel() : string - Customer._name + Customer._address 
