@@ -97,7 +97,7 @@ DisplayFullAddress() : string - (with newline characters where appropriate \n) s
 
 Class: Order 
 _listProducts : List<Product> 
-_customer : List<Customer> 
+_customer : Customer 
 _totalPrice : int 
 _shippingCost : int 
 _packingLabel : string (name and product id) 
