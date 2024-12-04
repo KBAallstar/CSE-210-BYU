@@ -70,11 +70,11 @@ _itemPrice : float
 _totalPrice : float 
 _quantity : int 
 
-GetName() : string _name
+GetName() : string _name 
 SetName() 
 GetPrice() : float _itemPrice 
-SetPrice()
-GetQuantity() : int _quantity
+SetPrice() 
+GetQuantity() : int _quantity 
 SetQuantity() 
 GetID() : string _id 
 SetID() 
@@ -90,7 +90,7 @@ Class: Address
 _street : string
 _city : string 
 _stateProvince : string
-_country : string
+_country : string 
 
 AddressInUSA(_country) : bool - Checks if Address._country == USA
 DisplayFullAddress() : string - (with newline characters where appropriate \n) street, city, state, country 
