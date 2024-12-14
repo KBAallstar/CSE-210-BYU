@@ -8,14 +8,28 @@ namespace Develop06
         int _target;
         int _bonus;
 
-        public ChecklistGoal(string name, string description, int points, int target, int bonus) : base(name, description, points)
+        public ChecklistGoal(string name, string description, int points, int amountCompleted, int target, int bonus) : base(name, description, points)
         {
-            Console.WriteLine("ChecklistGoal...");
+            _shortName = name;
+            _description = description;
+            _points = points;
+            _amountCompleted = amountCompleted;
+            _target = target;
+            _bonus = bonus;
         }
 
         public override void RecordEvent()
         {
-            Console.WriteLine("SimpleGoal.RecordEvent...");
+            _amountCompleted++;
+            if (_amountCompleted == _target)
+            {
+                SetIsComplete(true);
+                Console.WriteLine($"Goal {_shortName} is complete! You earned {_points += _bonus} points!");
+            }
+            else
+            {
+                Console.WriteLine($"Goal {_shortName} is {_amountCompleted}/{_target} complete! You earned {_points} points!");
+            }
         }
 
         public override bool IsComplete()
@@ -23,14 +37,29 @@ namespace Develop06
             return _isComplete;
         }
 
-        public string GetDetailsString()
+        public override string GetDetailsString()
         {
-            return $"{_shortName} - {_description} - {_points}";
+            string completionBox = "[ ]";
+            if (IsComplete())
+            {
+                completionBox = "[X]";
+            }
+            return $"{completionBox} {_shortName}: {_description}. Value: {_points}. -- Currently completed: {_amountCompleted}/{_target}. Bonus: {_bonus}.";
         }
 
-        public string GetStringRepresentation()
+        public override string GetStringRepresentation()
         {
-            return $"{_shortName} - {_description} - {_points}";
+            return $"Checklist//{_isComplete}//{_shortName}//{_description}//{_points}//{_amountCompleted}//{_target}//{_bonus}";
+        }
+
+        public int GetAmountCompleted()
+        {
+            return _amountCompleted;
+        }
+
+        public int GetTarget()
+        {
+            return _target;
         }
     }
 }

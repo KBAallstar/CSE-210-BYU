@@ -15,21 +15,26 @@ namespace Develop06
             _points = points;
         }
 
-        public virtual void RecordEvent()
-        {
-            Console.WriteLine("Goal.RecordEvent...");
-        }
+        public abstract void RecordEvent();
 
         public abstract bool IsComplete();
+        public abstract void SetIsComplete(bool isComplete);
 
-        public string GetDetailsString()
+        public virtual string GetDetailsString()
         {
-            return $"{_shortName} - {_description} - {_points}";
+            return $"{_shortName}: {_description}. Value: {_points}.";
         }
 
-        public string GetStringRepresentation()
+        public abstract string GetStringRepresentation();
+
+        public string GetShortName()
         {
-            return $"{_shortName} - {_description} - {_points}";
+            return _shortName;
+        }
+
+        public int GetPoints()
+        {
+            return _points;
         }
     }
 }

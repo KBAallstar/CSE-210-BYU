@@ -8,12 +8,15 @@ namespace Develop06
 
         public SimpleGoal(string name, string description, int points) : base(name, description, points)
         {
-            Console.WriteLine("SimpleGoal...");
+            _shortName = name;
+            _description = description;
+            _points = points;
         }
 
         public override void RecordEvent()
         {
-            Console.WriteLine("SimpleGoal.RecordEvent...");
+            SetIsComplete(true);
+            Console.WriteLine($"Goal {_shortName} is complete! You earned {_points} points!");
         }
 
         public override bool IsComplete()
@@ -21,14 +24,24 @@ namespace Develop06
             return _isComplete;
         }
 
-        public string GetDetailsString()
+        public override string GetDetailsString()
         {
-            return $"{_shortName} - {_description} - {_points}";
+            string completionBox = "[ ]";
+            if (IsComplete())
+            {
+                completionBox = "[X]";
+            }
+            return $"{completionBox} {_shortName}: {_description}. Value: {_points}.";
         }
 
-        public string GetStringRepresentation()
+        public override string GetStringRepresentation()
         {
-            return $"{_shortName} - {_description} - {_points}";
+            return $"Simple//{_isComplete}//{_shortName}//{_description}//{_points}";
+        }
+
+        public override void SetIsComplete(bool isComplete)
+        {
+            _isComplete = isComplete;
         }
     }
 }

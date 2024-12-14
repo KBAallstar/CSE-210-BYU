@@ -6,12 +6,14 @@ namespace Develop06
     {
         public EternalGoal(string name, string description, int points) : base(name, description, points)
         {
-            Console.WriteLine("EternalGoal...");
+            _shortName = name;
+            _description = description;
+            _points = points;
         }
 
         public override void RecordEvent()
         {
-            Console.WriteLine("SimpleGoal.RecordEvent...");
+            Console.WriteLine($"Goal {_shortName} is complete! You earned {_points} points!");
         }
 
         public override bool IsComplete()
@@ -19,14 +21,9 @@ namespace Develop06
             return _isComplete;
         }
 
-        public string GetDetailsString()
+        public override string GetStringRepresentation()
         {
-            return $"{_shortName} - {_description} - {_points}";
-        }
-
-        public string GetStringRepresentation()
-        {
-            return $"{_shortName} - {_description} - {_points}";
+            return $"Eternal//{_isComplete}//{_shortName}//{_description}//{_points}";
         }
     }
 }
