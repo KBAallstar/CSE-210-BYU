@@ -1,5 +1,12 @@
 using System;
 
+/*
+    Exceeds expectations by doing the following:
+    - Created helpful titles for each menu option
+    - Check to see if save files exist before loading them
+    - Check to see if goals are completed before allowing the user to record an event
+*/
+
 namespace Develop06
 {
     class Program
